@@ -1,0 +1,21 @@
+
+
+name: Test WorkFlow
+
+on:
+  push: 
+    branches:
+      - master
+
+jobs:
+  my-job:
+    name: My Job1
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print a greeting
+      env:
+        MY_VAR: Hi there! My name is
+        FIRST_NAME: Hongbo
+        LAST_NAME: Sun
+      run: |
+        echo $MY_VAR $FIRST_NAME  $LAST_NAME.
