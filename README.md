@@ -5,6 +5,7 @@
 
 **本项目是SpringBoot+MybatisPlus+Mysql技术栈的前后端分离外卖管理系统。**
 
+
 本项目（瑞吉外卖）是专门为餐饮企业（餐厅、饭店）定制的一款软件产品，
 包括 系统管理后台 和 移动端应用 两部分。 其中系统管理后台主要提供给餐饮企业内部员工使用，
 可以对餐厅的分类、菜品、套餐、订单、员工等进行管理维护。 移动端应用主要提供给消费者使用，
@@ -82,3 +83,10 @@
 
 ## 5 参考
 视频参考：**[瑞吉外卖——实战项目](https://www.bilibili.com/video/BV13a411q753/?share_source=copy_web&vd_source=93aa00906c2c29d639fffa4a9090899a)**
+=======
+``SHB``: `2023-07-22` 完成P69,包括后台登陆管理、员工信息、菜品信息的CRUD
+## 1 快速上手
+- (1) 导入项目的SQL文件 `src/main/resources/reggie.sql`
+- (2) `application-test.yml` 需要配置`spring.datasource.druid`的`username`和`password`
+- (3) 启动项目
+>>>>>>> origin/master

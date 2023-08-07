@@ -1,5 +1,6 @@
 package com.shbone.reggiedemo.service.impl;
 
+
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.shbone.reggiedemo.dto.SetmealDTO;
@@ -22,8 +23,10 @@ import java.util.stream.Collectors;
 public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> implements SetmealService {
     @Autowired
     private SetMealDishServiceImpl setMealDishService;
+
     /**
      * 新增菜品套餐，同时添加菜品和套餐的关系
+     *
      * @param setmealDTO
      */
     @Transactional
@@ -32,7 +35,7 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> impl
         //    插入setmeal套餐信息,操作setmeal表
         Setmeal setmeal = (Setmeal) setmealDTO;
         this.save(setmeal);
-        log.info("成功保存套餐信息：{}",setmeal.toString());
+        log.info("成功保存套餐信息：{}", setmeal.toString());
         //    添加菜品和套餐的关系，操作setmeal_dish表
         List<SetmealDish> setmealDishes = setmealDTO.getSetmealDishes();
         setmealDishes.stream().map(item -> {

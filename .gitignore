@@ -6,9 +6,8 @@ src/test
 笔记1.md
 mvnw
 mvnw.cmd
-.mvn
+.mvn/
 
-#!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
