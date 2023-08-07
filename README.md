@@ -64,29 +64,23 @@
 ## 4 效果展示
 <details>
   <summary>登录界面</summary>
-  <img height="800" src="img/瑞吉外卖管理端.png" width="1200"/>
+  <img  src="img/瑞吉外卖管理端.png" />
 </details>
 <details>
   <summary>分类管理</summary>
-  <img height="800" src="img/瑞吉外卖管理端后台_分类管理.png" width="1200"/>
+  <img  src="img/瑞吉外卖管理端后台_分类管理.png" />
 </details>
 
 <details>
   <summary>员工管理</summary>
-  <img height="800" src="img/瑞吉外卖管理端后台_员工管理.png" width="1200"/>
+  <img  src="img/瑞吉外卖管理端后台_员工管理.png" />
 </details>
 
 <details>
   <summary>菜品管理</summary>
-  <img height="800" src="img/瑞吉外卖管理端后台_菜品管理.png" width="1200"/>
+  <img  src="img/瑞吉外卖管理端后台_菜品管理.png" />
 </details>
 
 ## 5 参考
 视频参考：**[瑞吉外卖——实战项目](https://www.bilibili.com/video/BV13a411q753/?share_source=copy_web&vd_source=93aa00906c2c29d639fffa4a9090899a)**
-=======
-``SHB``: `2023-07-22` 完成P69,包括后台登陆管理、员工信息、菜品信息的CRUD
-## 1 快速上手
-- (1) 导入项目的SQL文件 `src/main/resources/reggie.sql`
-- (2) `application-test.yml` 需要配置`spring.datasource.druid`的`username`和`password`
-- (3) 启动项目
->>>>>>> origin/master
+
