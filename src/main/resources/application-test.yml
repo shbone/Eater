@@ -1,0 +1,84 @@
+server:
+  port: 9999
+  tomcat:
+    connection-timeout: 60000
+spring:
+  main:
+    allow-bean-definition-overriding: true #配置允许bean定义覆盖配置项
+  cache:
+    redis:
+      time-to-live: 1800000 #设置过期时间
+  redis:
+    host: xx.xx.xx.xx
+    port: 6379
+  application:
+    name: reggieDemo
+  datasource:
+    druid:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://xx.xx.xx.xx/reggie?characterEncoding=utf-8
+      username: xxxxxx
+      password: xxxxxx
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: /WEB-INF/**
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+  #设置开启热部署
+reggie:
+  path: D:\img\  #本地文件上传的地址
+
+
+#  shardingsphere:
+#    datasource:
+##      names: master,slave
+##      master:
+#      type: com.alibaba.druid.pool.DruidDataSource
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://47.113.146.180:3306/reggie?characterEncoding=utf-8
+#      username: root
+#      password: ytkj543789
+#      slave:
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://47.113.146.180:3306/reggie?characterEncoding=utf-8
+#        username: root
+#        password: ytkj543789
+#    masterslave:
+#      load-balance-algorithm-type: round_robin #读写分离配置，轮询
+#      name: dataSource #最终的数据源名称
+#      master-data-source-name: master #主库数据源名称
+#      slave-data-source-names: slave  #从库数据源名称
+#    props:
+#      sql:
+#        show: true #开启SQL显示
+#
+#mybatis-plus:
+#  configuration:
+#    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+#    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  global-config:
+#    db-config:
+#      id-type: ASSIGN_ID
+#reggie:
+#  path: D:\img\  #本地文件上传的地址
+#
+##minio:
+##  endpoint: http://localhost:9000
+##  accesskey: minioadmin
+##  secretkey: minioadmin
+##  bucketname: reggie
+##  countdown: 60
+#
+#msg:
+#  accessKeyId: #填写阿里短信的accessKeyId
+#  accessKeySecret: #填写阿里短信的accessKeySecret
