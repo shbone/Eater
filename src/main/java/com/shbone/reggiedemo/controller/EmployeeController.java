@@ -61,7 +61,7 @@ public class EmployeeController {
         }
         //2. 生成JWT token秘钥
         UserTokenDTO userTokenDTO = new UserTokenDTO();
-        userTokenDTO.setUserName(employee.getName());
+        userTokenDTO.setUserName(employee.getUsername());
         userTokenDTO.setUserId(employee.getIdNumber());
         String token = JWTUtil.generateToken(userTokenDTO);
         redisServiceImpl.set(employee.getUsername(),token);
