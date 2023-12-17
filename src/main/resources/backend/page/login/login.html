@@ -101,9 +101,9 @@
               this.loading = true
               console.log(this.loginForm)
               let res = await loginApi(this.loginForm)
-              console.log(res)
               if (String(res.code) === '1') {
-                localStorage.setItem('userInfo',JSON.stringify(res.data))
+                // localStorage.setItem('userInfo',JSON.stringify(res.data))
+                localStorage.setItem('Authorization',res.data)
                 window.location.href= '/backend/index.html'
               } else {
                 this.$message.error(res.msg)

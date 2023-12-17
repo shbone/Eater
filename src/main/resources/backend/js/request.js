@@ -12,8 +12,16 @@
     // 是否需要设置 token
     // const isToken = (config.headers || {}).isToken === false
     // if (getToken() && !isToken) {
-    //   config.headers['Authorization'] = 'Bearer ' + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
+    //   config.headers['Authorization'] = localStorage.getItem('Authorization') // 让每个请求携带自定义token 请根据实际情况自行修改
     // }
+
+
+    // 获取localStorage中的JWT token
+    const storedToken = localStorage.getItem('Authorization');
+    // 将localStorage中的JWT token放入请求的header中
+    if (storedToken && storedToken !== '') {
+      config.headers['Authorization'] = storedToken;
+    }
     // get请求映射params参数
     if (config.method === 'get' && config.params) {
       let url = config.url + '?';
@@ -72,5 +80,5 @@
       return Promise.reject(error)
     }
   )
-  win.$axios = service
+    win.$axios = service
 })(window);

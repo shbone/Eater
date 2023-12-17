@@ -16,6 +16,7 @@ import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author sunhb
@@ -30,6 +31,7 @@ public class EmployeeController {
 
     @Autowired
     private RedisServiceImpl redisServiceImpl;
+
     /**
      * 员工登录
      *
@@ -38,7 +40,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping("/login")
-    public R<Employee> login(HttpServletRequest request, @RequestBody Employee employee) {
+    public R<String> login(HttpServletRequest request, HttpServletResponse response, @RequestBody Employee employee) {
         //1. 获取密码，判断用户名和密码是否正确
         String password = employee.getPassword();
         password = DigestUtils.md5DigestAsHex(password.getBytes());
@@ -70,9 +72,10 @@ public class EmployeeController {
         //long id = Thread.currentThread().getId();
         //log.info("login 线程号:"+id);
 
+        //response.setHeader("Authorization",token);
 
         //System.out.println("login session id: "+request.getSession().getId());
-        return R.success(employee1);
+        return R.success(token);
     }
 
     @PostMapping("/logout")

@@ -117,6 +117,7 @@
             defAct: '2',
             menuActived: '2',
             userInfo: {},
+            token: '',
             menuList: [
               // {
               //   id: '1',
@@ -168,9 +169,13 @@
         },
         computed: {},
         created() {
-          const userInfo = window.localStorage.getItem('userInfo')
-          if (userInfo) {
-            this.userInfo = JSON.parse(userInfo)
+          // const userInfo = window.localStorage.getItem('userInfo')
+          // if (userInfo) {
+          //   this.userInfo = JSON.parse(userInfo)
+          // }
+          const token = window.localStorage.getItem('Authorization')
+          if (token) {
+            this.token = token
           }
           this.closeLoading()
         },
@@ -186,7 +191,8 @@
             console.log(this.logoutForm)
             logoutApi(this.logoutForm).then((res)=>{
               if(res.code === 1){
-                localStorage.removeItem('userInfo')
+                localStorage.removeItem('Authorization')
+                // localStorage.removeItem('userInfo')
                 window.location.href = '/backend/page/login/login.html'
               }
             })
