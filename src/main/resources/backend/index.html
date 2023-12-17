@@ -155,6 +155,10 @@
               //   ],
               // },
             ],
+            logoutForm:{
+              username: 'admin',
+              password: '123456'
+            },
             iframeUrl: 'page/member/list.html',
             headTitle: '员工管理',
             goBackFlag: false,
@@ -179,7 +183,8 @@
         },
         methods: {
           logout() {
-            logoutApi().then((res)=>{
+            console.log(this.logoutForm)
+            logoutApi(this.logoutForm).then((res)=>{
               if(res.code === 1){
                 localStorage.removeItem('userInfo')
                 window.location.href = '/backend/page/login/login.html'

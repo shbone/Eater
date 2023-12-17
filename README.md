@@ -18,7 +18,7 @@
 |   `2023-08-07`  | 套餐管理           |     完成P75    |
 
 ## 1 快速上手
-- 导入项目的SQL文件 `src/main/resources/reggie.sql`
+- 导入项目的SQL文件 `src/main/resources/eaterDemo.sql`
 - `application-test.yml` 需要配置`spring.datasource.druid`的`username`和`password`
 - 启动项目
 - 访问后台登录界面 `http://localhost:9999/backend/page/login/login.html`
