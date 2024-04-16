@@ -54,6 +54,25 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
         return dishDTO;
     }
     @Transactional(rollbackFor = Exception.class)
+    public boolean removeByIdWithFlavor(Long id) throws Exception {
+        LambdaQueryWrapper<DishFlavor> queryWrapper = new LambdaQueryWrapper<DishFlavor>().eq(DishFlavor::getId, id);
+        boolean remove = dishFlavorService.remove(queryWrapper);
+        boolean b = updateWithFlavor(id);
+        return remove;
+    }
+    @Transactional(rollbackFor = Exception.class)
+    public boolean updateWithFlavor(Long id) throws Exception {
+        LambdaQueryWrapper<DishFlavor> queryWrapper = new LambdaQueryWrapper<DishFlavor>().eq(DishFlavor::getId, id);
+        boolean remove = dishFlavorService.saveOrUpdateBatch(dishFlavorService.list(queryWrapper));
+        //主动抛出Exception
+        if(remove == false || remove == true){
+            throw new Exception("主动抛出异常");
+        }
+        return remove;
+    }
+
+
+    @Transactional(rollbackFor = Exception.class)
     public void updateWithFlavor(DishDTO dishDTO) {
         this.updateById(dishDTO);
         //菜品ID

@@ -92,6 +92,11 @@ public class DishController {
         DishDTO dishDTO = dishService.getByIdWithFlavors(id);
         return R.success(dishDTO) ;
     }
+    @GetMapping("/test/{id}")
+    public boolean testTransaction(@PathVariable Long id) throws Exception {
+        boolean remove = dishService.removeByIdWithFlavor(id);
+        return remove;
+    }
 
 
     @GetMapping("/list")
